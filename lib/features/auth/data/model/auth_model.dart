@@ -10,16 +10,12 @@ class AuthModel {
     name = data['name'];
     email = data['email'];
     userId = data['userId'];
-    adress = data['adress'];
-    phoneNumber = data['phoneNumber'];
   }
   Map<String, dynamic> toJson() {
     return {
       'name': name,
       'email': email,
       'userId': userId,
-      'phoneNumber': phoneNumber,
-      'adress': adress,
     };
   }
 }
