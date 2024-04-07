@@ -7,7 +7,7 @@ class AuthSignTextButton extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return TextButton(onPressed:onPressed, child: Text('Sign In',
-    style: StyleText.TextStyle14,
+    style: StyleText.textStyle14,
     ));
   }
 }

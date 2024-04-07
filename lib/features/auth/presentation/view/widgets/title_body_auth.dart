@@ -13,11 +13,13 @@ class TitleBodyAuth extends StatelessWidget {
           children: [
              Text(
               titleText,
-              style: StyleText.textStyle24
+              style: StyleText.textStyle40
             ),
              Text(
               bodyText,
-              style: StyleText.textStyle18,
+              style: StyleText.textStyle18.copyWith(
+                fontFamily: 'Josefin Sans'
+              ),
             ),
             
           ],
