@@ -2,8 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:moment/features/auth/presentation/view/widgets/custom_text_feild.dart';
 
 class UserSignUpForm extends StatelessWidget {
-  const UserSignUpForm({super.key});
-
+  const UserSignUpForm({super.key, required this.nameController, required this.emailController, required this.passwordController});
+  final TextEditingController nameController, emailController,passwordController;
   @override
   Widget build(BuildContext context) {
     double heightMedia = MediaQuery.of(context).size.height * 0.03;
@@ -11,11 +11,17 @@ class UserSignUpForm extends StatelessWidget {
       padding: const EdgeInsets.only(top: 55),
       child: Column(
       children: [
-        const CustomTextFeild(labelText: 'Name', keyboardType: TextInputType.name),
+         CustomTextFeild(
+          controller: nameController,
+          labelText: 'Name', keyboardType: TextInputType.name),
         SizedBox(height:heightMedia,),
-        const CustomTextFeild(labelText: 'Email', keyboardType: TextInputType.emailAddress),
+         CustomTextFeild(
+          controller: emailController,
+          labelText: 'Email', keyboardType: TextInputType.emailAddress),
         SizedBox(height:heightMedia,),
-        const CustomTextFeild(labelText: 'Password', keyboardType: TextInputType.visiblePassword),  
+         CustomTextFeild(
+          controller: passwordController,
+          labelText: 'Password', keyboardType: TextInputType.visiblePassword),  
         SizedBox(height:heightMedia,),
         ],
       ),

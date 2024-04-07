@@ -41,6 +41,8 @@ dependencies:
   go_router: ^13.2.2
   firebase_core: ^2.28.0
   image_picker: ^1.0.7
+  firebase_storage: ^11.7.0
+  path: ^1.9.0
 
 dev_dependencies:
   flutter_test:

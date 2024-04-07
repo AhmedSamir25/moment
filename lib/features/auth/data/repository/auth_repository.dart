@@ -6,13 +6,14 @@ class AuthRepository {
   
  //Sign up 
   Future<void> registerWithEmail(
-      String email, String password, String name) async {
+      String email, String password, String name,) async {
     UserCredential userCredential = await FirebaseAuth.instance
         .createUserWithEmailAndPassword(email: email, password: password);
     await sendUserDataToFirebase(
       userId: userCredential.user!.uid,
       name: name,
       email: email,
+      userImage: '',
     );
   }
 
@@ -33,9 +34,11 @@ class AuthRepository {
   Future<void> sendUserDataToFirebase(
       {required String userId,
       required String name,
-      required String email}) async {
+      required String email,
+      required String userImage,
+      }) async {
     AuthModel userModel = AuthModel(email: email, name: name, userId: userId,
-  
+    userImage:userImage,
     );
     await FirebaseFirestore.instance
         .collection('User')

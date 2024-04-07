@@ -10,14 +10,20 @@ class SignInViewBody extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+  final emailController = TextEditingController();
+  final passwordController = TextEditingController();
     return  Padding(
       padding: const EdgeInsets.symmetric(horizontal: 24.0),
       child: ListView(
         children: [
           const TitleBodyAuth(titleText: 'Moment',
           bodyText: 'Sher your happy moment',),
-          const UserSignInForm(),
+           UserSignInForm(
+            emailController: emailController,
+            passwordController: passwordController,
+          ),
           CustomElevatedButton(onPressed: () {},
+          buttonText: 'Sign In',
           ),
           Row(
             mainAxisAlignment: MainAxisAlignment.center,

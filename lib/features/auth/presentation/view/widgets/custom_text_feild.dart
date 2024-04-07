@@ -1,15 +1,16 @@
 import 'package:flutter/material.dart';
 
 class CustomTextFeild extends StatelessWidget {
-  const CustomTextFeild({super.key, required this.labelText, required this.keyboardType});
+  const CustomTextFeild({super.key, required this.labelText, required this.keyboardType, required this.controller});
   final String labelText;
   final TextInputType keyboardType;
+  final TextEditingController controller;
   @override
   Widget build(BuildContext context) {
     return  TextFormField(
       
       // cursorColor: appColor,
-      // controller: controller,
+       controller: controller,
      
       decoration: InputDecoration(
         label: Text(labelText),   

@@ -14,7 +14,7 @@ class AuthCubit extends Cubit<AuthState> {
     required String name,
   }) async {
     try {
-      await _authRepository.registerWithEmail(email, password, name);
+      await _authRepository.registerWithEmail(email, password, name,);
       emit(UserSignSuccessState());
     } catch (e) {
       emit(FeiledCreatedUserState(massage: e.toString()));
