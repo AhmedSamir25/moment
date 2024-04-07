@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "309487702262",
+    "project_id": "moment-8075a",
+    "storage_bucket": "moment-8075a.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:309487702262:android:4f1c50f2101f32aa881cd7",
+        "android_client_info": {
+          "package_name": "com.example.moment"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBfkfSOTZUXdUjWF78b9gIi7S9NnT9zPC8"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
