@@ -3,6 +3,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:moment/core/theme/text_style.dart';
 import 'package:moment/features/auth/presentation/logic/auth_cubit/auth_cubit.dart';
 import 'package:moment/features/auth/presentation/logic/auth_cubit/auth_state.dart';
+import 'package:moment/features/auth/presentation/view/forget_password_view.dart';
 import 'package:moment/features/auth/presentation/view/widgets/auth_text_button.dart';
 import 'package:moment/features/auth/presentation/view/widgets/custom_elevated_button.dart';
 import 'package:moment/features/auth/presentation/view/widgets/title_body_auth.dart';
@@ -39,6 +40,11 @@ class SignInViewBody extends StatelessWidget {
                 emailController: emailController,
                 passwordController: passwordController,
               ),
+              TextButton(onPressed: (){
+                Navigator.push(context, MaterialPageRoute(builder: (context) => const ForgetPasswordView(),));
+              }, child: Align(
+                alignment: Alignment.centerRight,
+                child: Text('Forget Password',style: StyleText.textStyle14.copyWith(color: Colors.blue),))),
               CustomElevatedButton(
                 onPressed: () {
                   if (emailController.text.isEmpty &&
@@ -70,6 +76,7 @@ class SignInViewBody extends StatelessWidget {
                     style: StyleText.textStyle14,
                   ),
                   AuthSignTextButton(
+                    textButton: "Sign Up",
                     onPressed: () {
                       Navigator.pop(context);
                     },

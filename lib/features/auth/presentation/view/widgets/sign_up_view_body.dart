@@ -79,6 +79,7 @@ class SignUpViewBody extends StatelessWidget {
                     style: StyleText.textStyle14,
                   ),
                   AuthSignTextButton(
+                    textButton: "Sign In",
                     onPressed: () {
                       Navigator.push(
                           context,

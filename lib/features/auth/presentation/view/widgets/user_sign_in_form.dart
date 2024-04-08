@@ -6,7 +6,7 @@ class UserSignInForm extends StatelessWidget {
  final TextEditingController emailController,passwordController;
   @override
   Widget build(BuildContext context) {
-     double heightMedia = MediaQuery.of(context).size.height * 0.03;
+     double heightMedia = MediaQuery.of(context).size.height ;
       return  Padding(
       padding: const EdgeInsets.only(top: 55),
       child: Column(
@@ -14,11 +14,11 @@ class UserSignInForm extends StatelessWidget {
         CustomTextFeild(
           controller: emailController,
           labelText: 'Email', keyboardType: TextInputType.emailAddress),
-        SizedBox(height:heightMedia,),
+        SizedBox(height:heightMedia *  0.03,),
         CustomTextFeild(
           controller: passwordController,
           labelText: 'Password', keyboardType: TextInputType.visiblePassword),  
-        SizedBox(height:heightMedia,),
+        SizedBox(height:heightMedia *  0.01,),
         ],
       ),
     );
