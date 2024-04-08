@@ -3,6 +3,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:moment/core/theme/text_style.dart';
 import 'package:moment/features/auth/presentation/logic/auth_cubit/auth_cubit.dart';
 import 'package:moment/features/auth/presentation/logic/auth_cubit/auth_state.dart';
+import 'package:moment/features/auth/presentation/view/pick_image_view.dart';
 import 'package:moment/features/auth/presentation/view/sign_in_view.dart';
 import 'package:moment/features/auth/presentation/view/widgets/auth_text_button.dart';
 import 'package:moment/features/auth/presentation/view/widgets/custom_elevated_button.dart';
@@ -20,7 +21,14 @@ class SignUpViewBody extends StatelessWidget {
   final nameController = TextEditingController();
     return BlocConsumer<AuthCubit, AuthState>(
       listener: (context, state) {
-        // TODO: implement listener
+       if (state is UserSignSuccessState) {
+         Navigator.pushReplacement(context, MaterialPageRoute(builder: (context) => const PickImageView(),));
+       }else if(state is FeiledCreatedUserState){
+             ScaffoldMessenger.of(context).showSnackBar( SnackBar(
+              backgroundColor: Colors.red,content:
+               Text(state.massage)));
+               print(state.massage);
+       }
       },
       builder: (context, state) {
         return Padding(
@@ -29,7 +37,7 @@ class SignUpViewBody extends StatelessWidget {
             children: [
               const TitleBodyAuth(
                 titleText: 'Moment',
-                bodyText: 'Sher your happy moment',
+                bodyText: 'Share your happy moment',
               ),
                UserSignUpForm(
                 nameController:nameController,
@@ -38,7 +46,13 @@ class SignUpViewBody extends StatelessWidget {
                ),
               CustomElevatedButton(
                 onPressed: () {
-                  if (emailController.text.isEmpty) {
+                  if (emailController.text.isEmpty && passwordController.text.isEmpty && nameController.text.isEmpty) {
+                      ScaffoldMessenger.of(context).showSnackBar(const SnackBar(
+                          backgroundColor: Colors.red,
+                          content:
+                              Text('Check Password And Email, Name Field Is Empty')));
+                  }
+                  else if (emailController.text.isEmpty) {
                       ScaffoldMessenger.of(context).showSnackBar(const SnackBar(
                           backgroundColor: Colors.red,
                           content: Text('Check Email Field Is Empty')));
@@ -50,12 +64,11 @@ class SignUpViewBody extends StatelessWidget {
                       ScaffoldMessenger.of(context).showSnackBar(const SnackBar(
                           backgroundColor: Colors.red,
                           content: Text('Check Name Field Is Empty')));
-                     }else {
-                      ScaffoldMessenger.of(context).showSnackBar(const SnackBar(
-                          backgroundColor: Colors.red,
-                          content:
-                              Text('Check Password And Email, Name Field Is Empty')));
-                    }
+                     }else{
+                      signUpCubit.registerWithEmail(email: emailController.text,
+                       password: passwordController.text,
+                        name: nameController.text);
+                     }
                 },
                 buttonText: 'Sign Up',
               ),

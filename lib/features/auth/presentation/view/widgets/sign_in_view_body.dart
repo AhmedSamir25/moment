@@ -17,12 +17,30 @@ class SignInViewBody extends StatelessWidget {
       child: ListView(
         children: [
           const TitleBodyAuth(titleText: 'Moment',
-          bodyText: 'Sher your happy moment',),
+          bodyText: 'Share your happy moment',),
            UserSignInForm(
             emailController: emailController,
             passwordController: passwordController,
           ),
-          CustomElevatedButton(onPressed: () {},
+          CustomElevatedButton(onPressed: () {
+            if (emailController.text.isEmpty && passwordController.text.isEmpty ) {
+                      ScaffoldMessenger.of(context).showSnackBar(const SnackBar(
+                          backgroundColor: Colors.red,
+                          content:
+                              Text('Check Password And Email Field Is Empty')));
+                  }
+                  else if (emailController.text.isEmpty) {
+                      ScaffoldMessenger.of(context).showSnackBar(const SnackBar(
+                          backgroundColor: Colors.red,
+                          content: Text('Check Email Field Is Empty')));
+                    } else if (passwordController.text.isEmpty) {
+                      ScaffoldMessenger.of(context).showSnackBar(const SnackBar(
+                          backgroundColor: Colors.red,
+                          content: Text('Check Password Field Is Empty')));
+                    }else{
+                      
+                    }
+          },
           buttonText: 'Sign In',
           ),
           Row(
