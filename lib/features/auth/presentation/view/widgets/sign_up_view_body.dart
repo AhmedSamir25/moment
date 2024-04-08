@@ -27,7 +27,6 @@ class SignUpViewBody extends StatelessWidget {
              ScaffoldMessenger.of(context).showSnackBar( SnackBar(
               backgroundColor: Colors.red,content:
                Text(state.massage)));
-               print(state.massage);
        }
       },
       builder: (context, state) {

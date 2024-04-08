@@ -19,6 +19,7 @@ class UserImageCubit extends Cubit<UserImageState> {
       emit(UserImageFieldPicked());
     }
   }
+
   Future<String> uploadImage() async{
     Reference imageRef = FirebaseStorage.instance.ref(basename(imageFile!.path));
     await imageRef.putFile(imageFile!);

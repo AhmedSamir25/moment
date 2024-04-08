@@ -11,7 +11,7 @@ class PickImageView extends StatelessWidget {
     return  Scaffold(
       body: BlocProvider(
         create: (context) => UserImageCubit(),
-        child: PickImageViewBody(),
+        child: const PickImageViewBody(),
       ),
     );
   }

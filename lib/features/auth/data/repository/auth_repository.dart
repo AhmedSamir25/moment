@@ -1,5 +1,6 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
+import 'package:moment/features/auth/data/local_data/save_user_id.dart';
 import 'package:moment/features/auth/data/model/auth_model.dart';
 
 class AuthRepository {
@@ -9,6 +10,7 @@ class AuthRepository {
       String email, String password, String name,) async {
     UserCredential userCredential = await FirebaseAuth.instance
         .createUserWithEmailAndPassword(email: email, password: password);
+        SetUserId().setUserId(userId: userCredential.user!.uid);
     await sendUserDataToFirebase(
       userId: userCredential.user!.uid,
       name: name,
@@ -19,8 +21,9 @@ class AuthRepository {
 
 //Sign in
   Future<void> signIn(String email, String password) async {
-     await FirebaseAuth.instance.signInWithEmailAndPassword(
+     UserCredential userCredential = await FirebaseAuth.instance.signInWithEmailAndPassword(
         email: email, password: password);
+        SetUserId().setUserId(userId: userCredential.user!.uid);
   }
 
   Future<void> signOut() async{
@@ -45,4 +48,9 @@ class AuthRepository {
         .doc(userId)
         .set(userModel.toJson());
   }
+    Future<void> updateUser({required String userImage}) {
+  return  FirebaseFirestore.instance.collection('User')
+        .doc(SetUserId().getId())
+    .update({'userImage': userImage});
+    }
 }

@@ -42,4 +42,5 @@ class AuthCubit extends Cubit<AuthState> {
       emit(FeiledResetPasswordState(massage: e.toString()));
     }
   }
+  
 }

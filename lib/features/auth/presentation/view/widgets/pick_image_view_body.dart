@@ -95,7 +95,10 @@ class PickImageViewBody extends StatelessWidget {
                       const SizedBox(
                         height: 20,
                       ),
-                  CustomElevatedButton(onPressed: (){},buttonText: 'استمرار',)
+                  CustomElevatedButton(onPressed: (){
+                    userPickedImage.uploadImage();
+                    
+                  },buttonText: 'استمرار',)
 
                 ],
               ),
