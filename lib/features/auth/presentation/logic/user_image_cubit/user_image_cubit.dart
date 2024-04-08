@@ -10,6 +10,7 @@ part 'user_image_state.dart';
 class UserImageCubit extends Cubit<UserImageState> { 
   UserImageCubit() : super(UserImageInitial());
   File? imageFile;
+  String ? imageLink;
   void pickImage() async{
     final pickedImage = await ImagePicker().pickImage(source: ImageSource.gallery);
     if (pickedImage != null) {
@@ -21,8 +22,9 @@ class UserImageCubit extends Cubit<UserImageState> {
   }
 
   Future<String> uploadImage() async{
-    Reference imageRef = FirebaseStorage.instance.ref(basename(imageFile!.path));
+    Reference imageRef = FirebaseStorage.instance.ref().child('user/${imageFile!.path}');
     await imageRef.putFile(imageFile!);
+    imageLink = await imageRef.getDownloadURL();
     return imageRef.getDownloadURL();
   }
 }

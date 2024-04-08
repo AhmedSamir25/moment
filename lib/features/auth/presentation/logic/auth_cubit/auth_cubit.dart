@@ -42,5 +42,12 @@ class AuthCubit extends Cubit<AuthState> {
       emit(FeiledResetPasswordState(massage: e.toString()));
     }
   }
-  
+  Future<void> uploadImageToFireStore({required String userImage}) async{
+    try{
+      emit(UploadImageToFireStoreSuccess());
+      await _authRepository.uploadImageToFireStore(userImage:userImage );
+    } catch (e){
+      emit(FieldUploadImageToFireStore(massage: e.toString()));
+    }
+  }
 }

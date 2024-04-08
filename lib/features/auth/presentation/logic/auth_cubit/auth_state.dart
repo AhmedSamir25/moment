@@ -20,3 +20,10 @@ class FeiledResetPasswordState extends AuthState {
 }
 
 class SuccessResetPasswordState extends AuthState {}
+
+class UploadImageToFireStoreSuccess extends AuthState {}
+
+class FieldUploadImageToFireStore extends AuthState{
+  String massage;
+  FieldUploadImageToFireStore({required  this.massage});
+}

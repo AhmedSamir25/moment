@@ -48,7 +48,7 @@ class AuthRepository {
         .doc(userId)
         .set(userModel.toJson());
   }
-    Future<void> updateUser({required String userImage}) {
+    Future<void> uploadImageToFireStore({required String userImage}) {
   return  FirebaseFirestore.instance.collection('User')
         .doc(SetUserId().getId())
     .update({'userImage': userImage});

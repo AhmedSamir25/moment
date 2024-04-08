@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:moment/core/theme/text_style.dart';
+import 'package:moment/features/auth/presentation/logic/auth_cubit/auth_cubit.dart';
 import 'package:moment/features/auth/presentation/logic/user_image_cubit/user_image_cubit.dart';
 import 'package:moment/features/auth/presentation/view/widgets/custom_elevated_button.dart';
 
@@ -9,6 +10,7 @@ class PickImageViewBody extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final userPickedImage = BlocProvider.of<UserImageCubit>(context);
+    final signUpCubit = BlocProvider.of<AuthCubit>(context);
     return BlocBuilder<UserImageCubit, UserImageState>(
       builder: (context, state) {
         if (userPickedImage.imageFile == null) {
@@ -52,7 +54,7 @@ class PickImageViewBody extends StatelessWidget {
                         ],
                       )),
                       const SizedBox(height: 20,),
-                      CustomElevatedButton(onPressed: (){},buttonText: 'استمرار',)
+                      CustomElevatedButton(onPressed: (){},buttonText: 'Continue',)
                 ],
               ),
             ),
@@ -95,10 +97,10 @@ class PickImageViewBody extends StatelessWidget {
                       const SizedBox(
                         height: 20,
                       ),
-                  CustomElevatedButton(onPressed: (){
-                    userPickedImage.uploadImage();
-                    
-                  },buttonText: 'استمرار',)
+                  CustomElevatedButton(onPressed: ()async{
+                    await userPickedImage.uploadImage();
+                    await signUpCubit.uploadImageToFireStore(userImage: userPickedImage.imageLink!);
+                  },buttonText: 'Continue',)
 
                 ],
               ),
