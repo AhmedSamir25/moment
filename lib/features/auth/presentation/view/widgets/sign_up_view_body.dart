@@ -8,7 +8,7 @@ import 'package:moment/features/auth/presentation/view/widgets/auth_text_button.
 import 'package:moment/features/auth/presentation/view/widgets/custom_elevated_button.dart';
 import 'package:moment/features/auth/presentation/view/widgets/title_body_auth.dart';
 import 'package:moment/features/auth/presentation/view/widgets/user_sign_up_form.dart';
-import 'package:moment/features/home_view.dart';
+import 'package:moment/features/home/presentation/view/home_view.dart';
 
 class SignUpViewBody extends StatelessWidget {
   const SignUpViewBody({super.key});

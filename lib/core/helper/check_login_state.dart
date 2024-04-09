@@ -2,7 +2,7 @@
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:moment/features/auth/presentation/view/sign_up.dart';
-import 'package:moment/features/home_view.dart';
+import 'package:moment/features/home/presentation/view/home_view.dart';
 
 class CheckUserLogin extends StatefulWidget {
   const CheckUserLogin({super.key});
