@@ -3,12 +3,12 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:moment/core/theme/text_style.dart';
 import 'package:moment/features/auth/presentation/logic/auth_cubit/auth_cubit.dart';
 import 'package:moment/features/auth/presentation/logic/auth_cubit/auth_state.dart';
-import 'package:moment/features/auth/presentation/view/pick_image_view.dart';
 import 'package:moment/features/auth/presentation/view/sign_in_view.dart';
 import 'package:moment/features/auth/presentation/view/widgets/auth_text_button.dart';
 import 'package:moment/features/auth/presentation/view/widgets/custom_elevated_button.dart';
 import 'package:moment/features/auth/presentation/view/widgets/title_body_auth.dart';
 import 'package:moment/features/auth/presentation/view/widgets/user_sign_up_form.dart';
+import 'package:moment/features/home_view.dart';
 
 class SignUpViewBody extends StatelessWidget {
   const SignUpViewBody({super.key});
@@ -22,7 +22,7 @@ class SignUpViewBody extends StatelessWidget {
     return BlocConsumer<AuthCubit, AuthState>(
       listener: (context, state) {
        if (state is UserSignSuccessState) {
-         Navigator.pushReplacement(context, MaterialPageRoute(builder: (context) => const PickImageView(),));
+         Navigator.pushReplacement(context, MaterialPageRoute(builder: (context) => const HomeView(),));
        }else if(state is FeiledCreatedUserState){
              ScaffoldMessenger.of(context).showSnackBar( SnackBar(
               backgroundColor: Colors.red,content:

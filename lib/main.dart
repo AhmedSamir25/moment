@@ -1,6 +1,7 @@
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:moment/core/helper/check_login_state.dart';
 import 'package:moment/features/auth/data/local_data/save_user_id.dart';
 import 'package:moment/features/auth/data/repository/auth_repository.dart';
 import 'package:moment/features/auth/presentation/logic/auth_cubit/auth_cubit.dart';
@@ -25,14 +26,7 @@ class MomentApp extends StatelessWidget {
       providers: [
         BlocProvider(create: (context) => AuthCubit(authRepository),)
       ],
-      child: MaterialApp(
-        debugShowCheckedModeBanner: false,
-        title: 'Moment',
-        theme: ThemeData(
-          useMaterial3: true,
-        ),
-        home: const SignUpView(),
-      ),
+      child: const CheckUserLogin(),
     );
   }
 }

@@ -27,3 +27,4 @@ class FieldUploadImageToFireStore extends AuthState{
   String massage;
   FieldUploadImageToFireStore({required  this.massage});
 }
+class LoadingUploadImageToFireStore extends AuthState{}

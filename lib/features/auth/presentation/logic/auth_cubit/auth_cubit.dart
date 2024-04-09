@@ -43,6 +43,7 @@ class AuthCubit extends Cubit<AuthState> {
     }
   }
   Future<void> uploadImageToFireStore({required String userImage}) async{
+    emit(LoadingUploadImageToFireStore());
     try{
       emit(UploadImageToFireStoreSuccess());
       await _authRepository.uploadImageToFireStore(userImage:userImage );

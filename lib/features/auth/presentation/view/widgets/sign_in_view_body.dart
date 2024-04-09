@@ -8,6 +8,7 @@ import 'package:moment/features/auth/presentation/view/widgets/auth_text_button.
 import 'package:moment/features/auth/presentation/view/widgets/custom_elevated_button.dart';
 import 'package:moment/features/auth/presentation/view/widgets/title_body_auth.dart';
 import 'package:moment/features/auth/presentation/view/widgets/user_sign_in_form.dart';
+import 'package:moment/features/home_view.dart';
 
 class SignInViewBody extends StatelessWidget {
   const SignInViewBody({super.key});
@@ -20,7 +21,7 @@ class SignInViewBody extends StatelessWidget {
     return BlocConsumer<AuthCubit, AuthState>(
       listener: (context, state) {
          if (state is UserSignSuccessState) {
-        //  Navigator.pushReplacement(context, MaterialPageRoute(builder: (context) => const PickImageView(),));
+          Navigator.pushReplacement(context, MaterialPageRoute(builder: (context) => const HomeView(),));
        }else if(state is FeiledCreatedUserState){
              ScaffoldMessenger.of(context).showSnackBar( SnackBar(
               backgroundColor: Colors.red,content:
