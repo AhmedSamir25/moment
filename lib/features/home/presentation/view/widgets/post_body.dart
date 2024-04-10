@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/widgets.dart';
 import 'package:moment/features/home/presentation/view/widgets/header_post.dart';
+import 'package:moment/features/home/presentation/view/widgets/post_captions.dart';
 import 'package:moment/features/home/presentation/view/widgets/post_image.dart';
 import 'package:moment/features/home/presentation/view/widgets/post_like.dart';
 
@@ -20,7 +22,7 @@ class PostBody extends StatelessWidget {
         SizedBox(height: heightMedia * 0.01,),
         PostLike(onPressed: (){},
          countLike: 122),
-         
+         const PostCaptions(postCaptions: 'this is a nice view '),
       ],
       ),
 
