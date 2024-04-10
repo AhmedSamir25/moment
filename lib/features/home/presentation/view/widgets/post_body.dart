@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
+import 'package:moment/features/home/presentation/view/widgets/all_comments.dart';
 import 'package:moment/features/home/presentation/view/widgets/header_post.dart';
 import 'package:moment/features/home/presentation/view/widgets/post_captions.dart';
 import 'package:moment/features/home/presentation/view/widgets/post_image.dart';
@@ -13,7 +14,7 @@ class PostBody extends StatelessWidget {
     double heightMedia = MediaQuery.of(context).size.height;
     return  Container(
       margin: const EdgeInsets.only(left: 8,right: 8),
-      color: const Color.fromARGB(255, 231, 225, 225),
+      color: Color.fromARGB(255, 239, 241, 236),
       child:  Column(children: [
         SizedBox(height: heightMedia * 0.01,),
         const HeaderPost(),
@@ -23,6 +24,7 @@ class PostBody extends StatelessWidget {
         PostLike(onPressed: (){},
          countLike: 122),
          const PostCaptions(postCaptions: 'this is a nice view '),
+         const AllCommentsButton(),
       ],
       ),
 
