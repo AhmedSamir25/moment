@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:moment/features/home/presentation/view/widgets/header_post.dart';
 import 'package:moment/features/home/presentation/view/widgets/post_image.dart';
+import 'package:moment/features/home/presentation/view/widgets/post_like.dart';
 
 class PostBody extends StatelessWidget {
   const PostBody({super.key});
@@ -16,6 +17,10 @@ class PostBody extends StatelessWidget {
         const HeaderPost(),
         SizedBox(height: heightMedia * 0.013,),
         const PostImage(),
+        SizedBox(height: heightMedia * 0.01,),
+        PostLike(onPressed: (){},
+         countLike: 122),
+         
       ],
       ),
 
