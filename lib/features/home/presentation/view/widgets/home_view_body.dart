@@ -6,10 +6,12 @@ class HomeViewBody extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return  const Column(
-      children: [
-        PostBody(),
-      ],
+    return  ListView.builder(
+      itemCount: 15,
+      scrollDirection: Axis.vertical,
+      itemBuilder: (context, index) => SizedBox(
+        height: MediaQuery.of(context).size.height * 0.5,
+        child: const PostBody()),
     );
   }
 }

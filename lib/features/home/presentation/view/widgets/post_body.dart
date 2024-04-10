@@ -13,8 +13,12 @@ class PostBody extends StatelessWidget {
   Widget build(BuildContext context) {
     double heightMedia = MediaQuery.of(context).size.height;
     return  Container(
-      margin: const EdgeInsets.only(left: 8,right: 8),
-      color: Color.fromARGB(255, 239, 241, 236),
+      
+      margin: const EdgeInsets.only(left: 8,right: 8 ,bottom: 13),
+     decoration: BoxDecoration(
+       color: Color.fromARGB(255, 239, 241, 236),
+       borderRadius: BorderRadius.circular(6),
+     ),
       child:  Column(children: [
         SizedBox(height: heightMedia * 0.01,),
         const HeaderPost(),
