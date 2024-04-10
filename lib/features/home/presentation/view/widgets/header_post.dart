@@ -7,17 +7,20 @@ class HeaderPost extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return         Row(
-          children: [
-            CircleAvatar(
-              backgroundImage: AssetImage(AssetsManager.userImageTest),
-              radius: 27,
-            ),
-            const SizedBox(
-              width: 7,
-            ),
-            Text('Ahmed Samir',style: StyleText.textStyle18,)
-          ],
-        );
+    return  Padding(
+      padding: const EdgeInsets.symmetric(horizontal: 6),
+      child: Row(
+            children: [
+              CircleAvatar(
+                backgroundImage: AssetImage(AssetsManager.userImageTest),
+                radius: 27,
+              ),
+              const SizedBox(
+                width: 7,
+              ),
+              Text('Ahmed Samir',style: StyleText.textStyle18,)
+            ],
+          ),
+    );
   }
 }
